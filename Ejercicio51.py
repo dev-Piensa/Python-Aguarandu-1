@@ -2,6 +2,44 @@
 
 import os
 
+def obtenerResultado():
+    os.system("clear")
+
+    if len(empleados) > 0:
+        # Cantidad de hombres con sueldo neto mayor a G. 50.000
+        cantHombres = 0
+        for i in empleados:
+            if i[2] == 1:
+                if i[5] > 50000:
+                    cantHombres = cantHombres + 1
+
+        print("La cantidad de hombres con sueldo mayor a G. 50.000 es {}".format(cantHombres))
+
+        # Avisar si hubo algún hombre con sueldo neto negativo.
+        hombreSueldoNegativo = False
+        for i in empleados:
+            if i[2] == 1:
+                if i[5] < 0:
+                    hombreSueldoNegativo = True
+
+        if hombreSueldoNegativo == True:
+            print("Hubo hombre con sueldo neto negativo")
+
+        # Avisar si hubo mujeres con sueldo mayor a G. 100.000
+        mujerSueldoMayor100 = False
+        for i in empleados:
+            if i[2] == 2:
+                if i[5] > 100000:
+                    mujerSueldoMayor100 = True
+        
+        if mujerSueldoMayor100 == True:
+            print("Hubo mujer con sueldo mayor a G. 100.000")
+
+        input("Presione Enter para continuar...")
+    else:
+        input("La lista de empleados esta vacía. Presione Enter para continuar...")
+
+
 sw = True
 empleados = []
 
@@ -19,41 +57,44 @@ while sw == True:
         sw = False
 
     elif opcionSeleccionada == "3":
-        os.system("clear")
 
-        if len(empleados) > 0:
-            # Cantidad de hombres con sueldo neto mayor a G. 50.000
-            cantHombres = 0
-            for i in empleados:
-                if i[2] == 1:
-                    if i[5] > 50000:
-                        cantHombres = cantHombres + 1
+        obtenerResultado()
 
-            print("La cantidad de hombres con sueldo mayor a G. 50.000 es {}".format(cantHombres))
+        # os.system("clear")
 
-            # Avisar si hubo algún hombre con sueldo neto negativo.
-            hombreSueldoNegativo = False
-            for i in empleados:
-                if i[2] == 1:
-                    if i[5] < 0:
-                        hombreSueldoNegativo = True
+        # if len(empleados) > 0:
+        #     # Cantidad de hombres con sueldo neto mayor a G. 50.000
+        #     cantHombres = 0
+        #     for i in empleados:
+        #         if i[2] == 1:
+        #             if i[5] > 50000:
+        #                 cantHombres = cantHombres + 1
 
-            if hombreSueldoNegativo == True:
-                print("Hubo hombre con sueldo neto negativo")
+        #     print("La cantidad de hombres con sueldo mayor a G. 50.000 es {}".format(cantHombres))
 
-            # Avisar si hubo mujeres con sueldo mayor a G. 100.000
-            mujerSueldoMayor100 = False
-            for i in empleados:
-                if i[2] == 2:
-                    if i[5] > 100000:
-                        mujerSueldoMayor100 = True
+        #     # Avisar si hubo algún hombre con sueldo neto negativo.
+        #     hombreSueldoNegativo = False
+        #     for i in empleados:
+        #         if i[2] == 1:
+        #             if i[5] < 0:
+        #                 hombreSueldoNegativo = True
+
+        #     if hombreSueldoNegativo == True:
+        #         print("Hubo hombre con sueldo neto negativo")
+
+        #     # Avisar si hubo mujeres con sueldo mayor a G. 100.000
+        #     mujerSueldoMayor100 = False
+        #     for i in empleados:
+        #         if i[2] == 2:
+        #             if i[5] > 100000:
+        #                 mujerSueldoMayor100 = True
             
-            if mujerSueldoMayor100 == True:
-                print("Hubo mujer con sueldo mayor a G. 100.000")
+        #     if mujerSueldoMayor100 == True:
+        #         print("Hubo mujer con sueldo mayor a G. 100.000")
 
-            input("Presione Enter para continuar...")
-        else:
-            input("La lista de empleados esta vacía. Presione Enter para continuar...")
+        #     input("Presione Enter para continuar...")
+        # else:
+        #     input("La lista de empleados esta vacía. Presione Enter para continuar...")
 
     elif opcionSeleccionada == "2":
         os.system("clear")
