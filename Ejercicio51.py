@@ -22,7 +22,20 @@ while sw == True:
         os.system("clear")
 
         if len(empleados) > 0:
-            
+            # Cantidad de hombres con sueldo neto mayor a G. 50.000
+            cantHombres = 0
+            for i in empleados:
+                if i[5] > 50000:
+                    cantHombres = cantHombres + 1
+
+            print("La cantidad de hombres con sueldo mayor a G. 50.000 es {}".format(cantHombres))
+
+            # Avisar si hubo algún hombre con sueldo neto negativo.
+            for i in empleados:
+                if i[5] < 0:
+                    print("{} tuvo un sueldo neto negativo".format(i[1]))
+
+
             input("Presione Enter para continuar...")
         else:
             input("La lista de empleados esta vacía. Presione Enter para continuar...")
@@ -88,7 +101,7 @@ while sw == True:
 
         # Calculo del Sueldo Neto
         sueldoNeto = sueldo - descuento
-        print("El sueldo neto del empleado es {}".format(sueldoNeto))
+        print("El sueldo neto de {} es {}".format(nombre ,sueldoNeto))
 
         # Cargando los datos verificados en la lista empleado
         empleado.append(numeroDeEmpleado)
