@@ -131,3 +131,5 @@ while sw == True:
     else:
         os.system("clear")
         input("Digíte una opcion válida. Presione Enter para continuar")
+
+os.system("clear")

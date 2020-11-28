@@ -25,16 +25,31 @@ while sw == True:
             # Cantidad de hombres con sueldo neto mayor a G. 50.000
             cantHombres = 0
             for i in empleados:
-                if i[5] > 50000:
-                    cantHombres = cantHombres + 1
+                if i[2] == 1:
+                    if i[5] > 50000:
+                        cantHombres = cantHombres + 1
 
             print("La cantidad de hombres con sueldo mayor a G. 50.000 es {}".format(cantHombres))
 
             # Avisar si hubo algún hombre con sueldo neto negativo.
+            hombreSueldoNegativo = False
             for i in empleados:
-                if i[5] < 0:
-                    print("{} tuvo un sueldo neto negativo".format(i[1]))
+                if i[2] == 1:
+                    if i[5] < 0:
+                        hombreSueldoNegativo = True
 
+            if hombreSueldoNegativo == True:
+                print("Hubo hombre con sueldo neto negativo")
+
+            # Avisar si hubo mujeres con sueldo mayor a G. 100.000
+            mujerSueldoMayor100 = False
+            for i in empleados:
+                if i[2] == 2:
+                    if i[5] > 100000:
+                        mujerSueldoMayor100 = True
+            
+            if mujerSueldoMayor100 == True:
+                print("Hubo mujer con sueldo mayor a G. 100.000")
 
             input("Presione Enter para continuar...")
         else:
@@ -120,3 +135,5 @@ while sw == True:
     else:
         os.system("clear")
         input("Digíte una opcion válida. Presione Enter para continuar")
+
+os.system("clear")
